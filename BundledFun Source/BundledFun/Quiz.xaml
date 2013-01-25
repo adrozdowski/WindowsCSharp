@@ -1,0 +1,145 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="BundledFun.Quiz"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" shell:SystemTray.BackgroundColor="#FF3182C1" shell:SystemTray.ForegroundColor="White">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <StackPanel Height="160" Background="#FF3182C1" VerticalAlignment="Top" />
+        
+        <controls:Pivot Name="pivot" Title="BUNDLEDFUN" SelectionChanged="PivotSelectionChanged" Foreground="White" Background="Transparent" >
+            <controls:PivotItem Header="Images">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--TitlePanel contains the name of the application and page title-->
+                    <Grid x:Name="TitlePanel1" Margin="0,-30,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Name="txtCorrect1" Text="Correct: " FontSize="20" TextWrapping="Wrap" HorizontalAlignment="Center" />
+                        <TextBlock Name="txtTimer1" Text="" FontSize="20" TextWrapping="Wrap" Grid.Column="1" HorizontalAlignment="Center" />
+                    </Grid>
+
+                    <!--ContentPanel - place additional content here-->
+                    <Grid x:Name="ContentPanelImages"  Grid.RowSpan="2">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel>
+                            <TextBlock Name="txtQuestion1" Text="Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing " TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Foreground="#FF6F6F6F" />
+                            <Image Height="210" Name="img" Stretch="Uniform"  />
+                        </StackPanel>
+
+                        <Button Content="A" Name="Answer_1x1" Click="SprawdzOdpowiedzClick" Foreground="White" Background="#FF3182C1" BorderBrush="White" BorderThickness="0"  Grid.Row="1" />
+                        <Button Content="B" Name="Answer_1x2" Click="SprawdzOdpowiedzClick" Foreground="White" Background="#FF3182C1" BorderBrush="White" BorderThickness="0" Grid.Row="2" />
+                        <Button Content="C" Name="Answer_1x3" Click="SprawdzOdpowiedzClick" Foreground="White" Background="#FF3182C1" BorderBrush="White" BorderThickness="0" Grid.Row="3" />
+                    </Grid>
+                </Grid>
+            </controls:PivotItem>
+
+            
+            
+            <controls:PivotItem Header="Trailers">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="TitlePanel2" Margin="0,-30,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Name="txtCorrect2" Text="Correct: " FontSize="20" TextWrapping="Wrap" HorizontalAlignment="Center" />
+                        <TextBlock Name="txtTimer2" Text="" FontSize="20" TextWrapping="Wrap" Grid.Column="1" HorizontalAlignment="Center" />
+                    </Grid>
+
+                    <!--ContentPanel - place additional content here-->
+                    <Grid x:Name="ContentPanel2" Grid.RowSpan="2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+                            <TextBlock Name="txtQuestion2" Text="Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing " TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Foreground="#FF6F6F6F" />
+                            <MediaElement Height="210" Name="MTrailer" Stretch="Uniform" AutoPlay="False" MediaEnded="MElementMediaEnded" />
+                        </StackPanel>
+
+                        <Button Content="A" Name="Answer_2x1" Click="SprawdzOdpowiedzClick" Foreground="White" Background="#FF3182C1" BorderBrush="White" BorderThickness="0" Grid.Row="1" />
+                        <Button Content="B" Name="Answer_2x2" Click="SprawdzOdpowiedzClick" Foreground="White" Background="#FF3182C1" BorderBrush="White" BorderThickness="0" Grid.Row="2" />
+                        <Button Content="C" Name="Answer_2x3" Click="SprawdzOdpowiedzClick" Foreground="White" Background="#FF3182C1" BorderBrush="White" BorderThickness="0" Grid.Row="3" />
+                    </Grid>
+                </Grid>
+            </controls:PivotItem>
+
+            <controls:PivotItem Header="Songs">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--TitlePanel contains the name of the application and page title-->
+                    <Grid x:Name="TitlePanel3" Margin="0,-30,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Name="txtCorrect3" Text="Correct: " FontSize="20" TextWrapping="Wrap" HorizontalAlignment="Center" />
+                        <TextBlock Name="txtTimer3" Text="" FontSize="20" TextWrapping="Wrap" Grid.Column="1" HorizontalAlignment="Center" />
+                    </Grid>
+
+                    <!--ContentPanel - place additional content here-->
+                    <Grid x:Name="ContentPanel3" Grid.RowSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+                            <TextBlock Name="txtQuestion3" Text="Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing " TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Foreground="#FF6F6F6F" />
+                            <MediaElement Height="210" Name="MSong" Stretch="Uniform" AutoPlay="False" MediaEnded="MElementMediaEnded"  />
+                        </StackPanel>
+
+                        <Button Content="A" Name="Answer_3x1" Click="SprawdzOdpowiedzClick" Foreground="White" Background="#FF3182C1" BorderBrush="White" BorderThickness="0"  Grid.Row="1" />
+                        <Button Content="B" Name="Answer_3x2" Click="SprawdzOdpowiedzClick" Foreground="White" Background="#FF3182C1" BorderBrush="White" BorderThickness="0" Grid.Row="2" />
+                        <Button Content="C" Name="Answer_3x3" Click="SprawdzOdpowiedzClick" Foreground="White" Background="#FF3182C1" BorderBrush="White" BorderThickness="0" Grid.Row="3" />
+                    </Grid>
+                </Grid>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>
